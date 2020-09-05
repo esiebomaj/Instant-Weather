@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="./fontawesome-free-5.14.0-web/css/all.css" />
+    <meta
+      name="description"
+      content="Instantly check the weather of any city"
+    />
+    <title>Weather App</title>
+  </head>
+  <body>
+    <div class="app">
+      <h1 class="page-title">Weather App</h1>
+      <input
+        class="search"
+        type="text"
+        name="search"
+        id="search"
+        placeholder="Enter city here . . . ."
+      />
+      <div class="result-container animate"></div>
+      <marquee class="footer"
+        >Made with
+        <i style="color: blue" class="fa fa-code" aria-hidden="true"></i> and
+        <i style="color: red" class="fa fa-heart" aria-hidden="true"></i> by
+        JeremAIh
+      </marquee>
+    </div>
+    <script src="./node_modules//axios/dist/axios.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
