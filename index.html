@@ -6,6 +6,7 @@
     <link rel="icon" href="" />
     <link rel="stylesheet" href="index.css" />
     <link rel="stylesheet" href="./fontawesome-free-5.14.0-web/css/all.css" />
+    <link rel="manifest" href="./manifest.json" />
     <meta
       name="description"
       content="Instantly check the weather of any city"
@@ -32,5 +33,22 @@
     </div>
     <script src="./node_modules//axios/dist/axios.min.js"></script>
     <script src="index.js"></script>
+
+    <script>
+      // service worker registration
+      if ("serviceWorker" in navigator) {
+        console.log("CLIENT: service worker registration in progress.");
+        navigator.serviceWorker.register("/sw.js").then(
+          function () {
+            console.log("CLIENT: service worker registration complete.");
+          },
+          function () {
+            console.log("CLIENT: service worker registration failure.");
+          }
+        );
+      } else {
+        console.log("CLIENT: service worker is not supported.");
+      }
+    </script>
   </body>
 </html>

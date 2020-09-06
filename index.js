@@ -8,15 +8,14 @@ window.addEventListener("keypress", (e) => {
   }
 });
 
+const resultContainer = document.querySelector(".result-container");
+
 async function getWeatherData(query) {
   try {
     const { data } = await axios.get(
       `https://api.openweathermap.org/data/2.5/weather?q=${query}&units=metric&APPID=${API_KEY}`
     );
-    console.log(data);
-
-    const resultContainer = document.querySelector(".result-container");
-
+    resultContainer.style.display = "none";
     resultContainer.innerHTML = `<h3 class="city-name">${data.name} <sup>${data.sys.country}</sup></h3>
     <div class="weather">${data.weather[0].main}(${data.weather[0].description})</div>
     <img
@@ -28,20 +27,18 @@ async function getWeatherData(query) {
        ${data.main.temp}<sup>o</sup>
     </div>
     <div class="wind">Wind speed : <span>${data.wind.speed}</span></div>`;
+
     resultContainer.style.display = "flex";
   } catch (e) {
-    if (e.response && e.response.status) {
-      const resultContainer = document.querySelector(".result-container");
+    if (e.response && e.response.status === 404) {
       resultContainer.innerHTML = `<i style='color:red; font-size: 2em;' class="fas fa-heart-broken"></i> 
       <p class='error-text'>sorry we cant find that city </p>
       <i style='color:blue; font-size: 2em;' class="fas fa-sad-tear"></i>`;
-      resultContainer.style.display = "flex";
     } else {
-      const resultContainer = document.querySelector(".result-container");
       resultContainer.innerHTML = `<i style='color:red; font-size: 2em;' class="fas fa-heart-broken"></i> 
       <p class='error-text'>Something went wrong </p>
       <i style='color:blue; font-size: 2em;' class="fas fa-sad-tear"></i>`;
-      resultContainer.style.display = "flex";
     }
+    resultContainer.style.display = "flex";
   }
 }
