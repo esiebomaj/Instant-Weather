@@ -6,7 +6,12 @@ self.addEventListener("install", function (event) {
     caches
       .open(version + "fundamentals")
       .then(function (cache) {
-        return cache.addAll(["/", "/index.js", "index.css"]);
+        return cache.addAll([
+          "/",
+          "/index.js",
+          "index.css",
+          "./fontawesome-free-5.14.0-web/",
+        ]);
       })
       .then(function () {
         console.log("WORKER: install completed");
