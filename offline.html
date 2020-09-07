@@ -20,7 +20,7 @@
     <div class="app">
       <h1 class="page-title">Weather App</h1>
       <form action="">
-        <label for="search">City Name</label>
+        <label for="search">City</label>
         <input
           autofocus
           class="search"
@@ -30,7 +30,11 @@
           placeholder="Enter city here . . . ."
         />
       </form>
-      <div class="result-container animate"></div>
+      <div class="result-container animate">
+        <i style="color: red; font-size: 2em" class="fas fa-heart-broken"></i>
+        <p class="error-text">sorry we cant find that city</p>
+        <i style="color: blue; font-size: 2em" class="fas fa-sad-tear"></i>
+      </div>
       <marquee class="footer"
         >Made with
         <i style="color: blue" class="fa fa-code" aria-hidden="true"></i> and
@@ -38,7 +42,7 @@
         JeremAIh
       </marquee>
     </div>
-    <script src="axios.min.js"></script>
+    <script src="./node_modules//axios/dist/axios.min.js"></script>
     <script src="index.js"></script>
 
     <script>
