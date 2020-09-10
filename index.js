@@ -1,4 +1,4 @@
-const API_KEY = "90ad1a751861d25727920ade4d222908";
+const SOMETHING_LIGHT = "90ad1a751861d25727920ade4d222908";
 
 const resultContainer = document.querySelector(".result-container");
 
@@ -17,7 +17,7 @@ async function init() {
 
 async function getWeatherData(query) {
   const { data } = await axios.get(
-    `https://api.openweathermap.org/data/2.5/weather?q=${query}&units=metric&APPID=${API_KEY}`
+    `https://api.openweathermap.org/data/2.5/weather?q=${query}&units=metric&APPID=${SOMETHING_LIGHT}`
   );
   return data;
 }
